@@ -1,22 +1,21 @@
 function solution(polynomial) {
-  let xCount = 0;
-  let nCount = 0;
+  let answer = '';
 
-  const terms = polynomial.split(' + ');
+  polynomial = polynomial.split(' + ');
 
-  terms.forEach((term) => {
-    if (term.includes('x')) {
-      xCount += term.split('x')[0] === '' ? 1 : Number(term.split('x')[0]);
-    } else {
-      nCount += Number(term);
-    }
-  });
+  const xNum = polynomial
+    .filter((p) => p.includes('x'))
+    .reduce(
+      (acc, cur) => acc + (cur === 'x' ? 1 : Number(cur.slice(0, -1))),
+      0,
+    );
 
-  if (xCount && nCount) {
-    return `${xCount === 1 ? '' : xCount}x + ${nCount}`;
-  } else if (xCount && !nCount) {
-    return `${xCount === 1 ? '' : xCount}x`;
-  } else {
-    return `${nCount}`;
-  }
+  const num = polynomial
+    .filter((p) => !p.includes('x'))
+    .reduce((acc, cur) => acc + Number(cur), 0);
+
+  if (xNum) answer += (xNum === 1 ? '' : xNum) + 'x';
+  if (num) answer += (answer ? ' + ' : '') + num;
+
+  return answer;
 }
