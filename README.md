@@ -1,3 +1,4 @@
 # Explanation
 
-Repository for algorithm problem solving results
+Repository for algorithm problem solving results from Baekjoon and Programmers
+
