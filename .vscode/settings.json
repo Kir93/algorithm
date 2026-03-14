@@ -1,4 +1,5 @@
 {
-  "python.languageServer": "Pylance",
-  "python.analysis.autoImportCompletions": true
+  "python.languageServer": "None",
+  "python.analysis.autoImportCompletions": true,
+  "cursorpyright.analysis.autoImportCompletions": true
 }
